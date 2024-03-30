@@ -1,0 +1,21 @@
+CREATE TABLE tblEmployee_4(ID INT,Name VARCHAR(250) NOT NULL,Gender VARCHAR(250) NOT NULL);
+
+INSERT INTO tblEmployee_4 VALUES(1,'Sara','Female');
+INSERT INTO tblEmployee_4 VALUES(2,'John','Male');
+INSERT INTO tblEmployee_4 VALUES(3,'Pam','Female');
+
+
+SELECT * FROM tblEmployee_4;
+
+SELECT Name FROM tblEmployee_4 WHERE ID = 1;
+SELECT Name FROM tblEmployee_4 WHERE ID = 2;
+
+CREATE PROCEDURE spGetNameById
+@ID INT
+AS
+BEGIN
+	SELECT Name FROM tblEmployee_4 WHERE ID = @ID
+END
+
+EXEC spGetNameById 1;
+EXEC spGetNameById 2;
